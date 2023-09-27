@@ -20,9 +20,8 @@ body {
 }
 
 .box:hover {
-    transform: scale(1.09);
+    transform: scale(1.05);
 }
-
 
 h1 {
     font-size: 36px;
@@ -42,7 +41,29 @@ table {
 
 table td {
     padding: 15px 0;
-    border-bottom: 1px solid #ff6600;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+table td:hover {
+    background-color: #ff6600;
+    transform: translateX(10px);
+}
+
+/* Stylish line between Bootstrap row and JavaScript row */
+.line-divider {
+    position: relative;
+    margin-top: 8px; /* Adjust as needed to control the line's vertical position */
+}
+
+.line-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Adjust the thickness of the line */
+    background-color: #ff6600; /* Line color */
 }
 
 .task-link {
@@ -53,4 +74,9 @@ table td {
 
 .task-link:hover {
     color: #ffcc33;
+}
+
+/* Specific style for the link text on hover */
+table td:hover .task-link {
+    color: #fff; /* Change the text color to white when the cell is hovered */
 }
